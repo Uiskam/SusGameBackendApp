@@ -8,7 +8,7 @@ import threading
 import platform
 
 
-def find_unused_port(start_port=8081) -> int:
+def find_unused_port(start_port=8080) -> int:
     """
     Finds an unused port starting from the given port.
 
@@ -42,7 +42,7 @@ def find_unused_port(start_port=8081) -> int:
                 port += 1
         except Exception as e:
             print(f"An error occurred: {e}")
-            return None
+            return 8080
 
 
 def get_ip():
