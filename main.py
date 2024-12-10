@@ -38,10 +38,8 @@ def find_unused_port(start_port=8080) -> int:
                 return port
             else:
                 # If output is not empty, increment the port number
-                print(f"Port {port} is in use. Trying next port...")
                 port += 1
-        except Exception as e:
-            print(f"An error occurred: {e}")
+        except Exception as _:
             return 8080
 
 
@@ -69,47 +67,65 @@ def display_image_with_text(image_path, jar_path, text_to_insert):
     java_process = subprocess.Popen(
         ["java", "-jar", jar_path],
         stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
         creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0
     )
 
     def on_close():
-        if java_process.poll() is None:  # Check if the process is still running
-            pass
-            # java_process.terminate()
-        root.destroy()
+        if java_process.poll() is None:
+            java_process.terminate()
+        window.destroy()
 
     def toggle_logs():
         if log_frame.winfo_ismapped():
+            #window.geometry(f"{max_width}x{image_frame_height}")
+            canvas.config(height=max_height)
             log_frame.pack_forget()
             log_button.config(text="Display Logs")
+            log_button.place(x=0, y=max_height - 20, anchor=tk.SW)
         else:
+            #window.geometry(f"{max_width}x{max_height}")
+            canvas.config(height=image_frame_height)
             log_frame.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
             log_button.config(text="Hide Logs")
+            log_button.place(x=0,y=image_frame_height-20, anchor=tk.SW)
 
-    # Create a tkinter root
-    root = tk.Tk()
-    root.title("SusGame Server")
-    root.configure(bg="black")
-    max_width, max_height = root.maxsize()
-
+    # Create a tkinter window
+    window = tk.Tk()
+    window.title("CyberSurfers Server")
+    window.configure(bg="black")
+    window_padding = 30
     image = Image.open(image_path)
     img_width, img_height = image.size
-    offset = 100
-    final_width, final_height = (min(img_width, max_width) - offset, min(img_height, max_height) - offset)
+    max_width, max_height = window.maxsize()
+    max_width, max_height = min(max_width, img_width) - window_padding, min(max_height, img_height) - window_padding
+    image_frame_height = int(max_height * (2/3))
+    image_frame_width = max_width
+    log_frame_height = max_height - image_frame_height
+    window.geometry(f"{max_width}x{max_height}")
 
-    image = image.resize((final_width, final_height - 100))
 
+    image_frame = tk.Frame(window, bg="black")
+    # image = image.resize((max_width, int((img_height/img_width) * max_width)))
+    image = image.resize((max_width, max_height))
     tk_image = ImageTk.PhotoImage(image)
-    root.geometry(f"{final_width}x{final_height}")
-
-    canvas = tk.Canvas(root, width=final_width, height=final_height, highlightthickness=0, bg="black")
-    canvas.pack()
+    canvas = tk.Canvas(image_frame, width=image_frame_width, height=max_height, highlightthickness=0, bg="black")
+    ip_font_size = image_frame_height // 10
+    title_font_size = ip_font_size * 2
     canvas.create_image(0, 0, anchor=tk.NW, image=tk_image)
-    canvas.create_text(final_width // 2, final_height // 2, text=text_to_insert, fill="white",
-                       font=("Helvetica", 24, "bold"))
+    canvas.create_text(image_frame_width // 2, max_height // 2, text=text_to_insert, fill="white",
+                       font=("VT323", ip_font_size))
+    canvas.create_text(image_frame_width // 2, title_font_size, text="CyberSurfers", fill="white",
+                       font=("VT323", title_font_size))
+    # Add button to toggle logs
+    log_button = tk.Button(image_frame, text="Display Logs", command=toggle_logs, bg="white", fg="black",
+                           font=("Helvetica", 12, "bold"))
+    log_button.place(x=0,y=max_height-24,anchor=tk.SW)
+    canvas.pack()
+    image_frame.pack(fill=tk.BOTH)
 
     # Scrollable text widget for logs
-    log_frame = tk.Frame(root, bg="black")
+    log_frame = tk.Frame(window, bg="black", height=log_frame_height)
     log_text_widget = scrolledtext.ScrolledText(log_frame, wrap=tk.WORD, height=100, bg="black", fg="white",
                                                 font=("Courier", 10))
     log_text_widget.pack(fill=tk.BOTH, expand=True)
@@ -119,15 +135,13 @@ def display_image_with_text(image_path, jar_path, text_to_insert):
     stderr_thread.daemon = True
     stderr_thread.start()
 
-    # Add button to toggle logs
-    log_button = tk.Button(root, text="Display Logs", command=toggle_logs, bg="white", fg="black",
-                           font=("Helvetica", 12, "bold"))
-    log_button.place(x=0, y=final_height - 50, anchor=tk.SW)
+    stdout_thread = threading.Thread(target=read_stderr, args=(java_process.stdout, log_text_widget))
+    stdout_thread.daemon = True
+    stdout_thread.start()
 
     # Bind the close event to terminate the Java process
-    root.protocol("WM_DELETE_WINDOW", on_close)
-
-    root.mainloop()
+    window.protocol("WM_DELETE_WINDOW", on_close)
+    window.mainloop()
 
 
 # Main entry point of the script
