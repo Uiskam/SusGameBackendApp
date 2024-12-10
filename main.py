@@ -82,12 +82,10 @@ def display_image_with_text(image_path, jar_path, text_to_insert):
             canvas.config(height=max_height)
             log_frame.pack_forget()
             log_button.config(text="Display Logs")
-            log_button.place(x=0, y=max_height - 20, anchor=tk.SW)
         else:
             canvas.config(height=image_frame_height)
             log_frame.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
             log_button.config(text="Hide Logs")
-            log_button.place(x=0,y=image_frame_height-20, anchor=tk.SW)
 
     # Create a tkinter window
     window = tk.Tk()
@@ -98,11 +96,10 @@ def display_image_with_text(image_path, jar_path, text_to_insert):
     img_width, img_height = image.size
     max_width, max_height = window.maxsize()
     max_width, max_height = min(max_width, img_width) - window_padding, min(max_height, img_height) - window_padding
-    image_frame_height = int(max_height * (2/3))
+    image_frame_height = int(max_height * (2 / 3))
     image_frame_width = max_width
     log_frame_height = max_height - image_frame_height
     window.geometry(f"{max_width}x{max_height}")
-
 
     image_frame = tk.Frame(window, bg="black")
     # image = image.resize((max_width, int((img_height/img_width) * max_width)))
@@ -119,7 +116,7 @@ def display_image_with_text(image_path, jar_path, text_to_insert):
     # Add button to toggle logs
     log_button = tk.Button(image_frame, text="Display Logs", command=toggle_logs, bg="white", fg="black",
                            font=("Helvetica", 12, "bold"))
-    log_button.place(x=0,y=max_height-24,anchor=tk.SW)
+    log_button.place(x=0, y=0, anchor=tk.NW)
     canvas.pack()
     image_frame.pack(fill=tk.BOTH)
 
