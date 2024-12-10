@@ -74,17 +74,16 @@ def display_image_with_text(image_path, jar_path, text_to_insert):
     def on_close():
         if java_process.poll() is None:
             java_process.terminate()
+            java_process.kill()
         window.destroy()
 
     def toggle_logs():
         if log_frame.winfo_ismapped():
-            #window.geometry(f"{max_width}x{image_frame_height}")
             canvas.config(height=max_height)
             log_frame.pack_forget()
             log_button.config(text="Display Logs")
             log_button.place(x=0, y=max_height - 20, anchor=tk.SW)
         else:
-            #window.geometry(f"{max_width}x{max_height}")
             canvas.config(height=image_frame_height)
             log_frame.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
             log_button.config(text="Hide Logs")
