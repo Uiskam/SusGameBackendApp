@@ -71,10 +71,13 @@ def display_image_with_text(image_path, jar_path, text_to_insert):
         creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0
     )
 
-    def on_close():
+    def shutdown_server():
         if java_process.poll() is None:
             java_process.terminate()
             java_process.kill()
+
+    def on_close():
+        shutdown_server()
         window.destroy()
 
     def toggle_logs():
@@ -117,6 +120,10 @@ def display_image_with_text(image_path, jar_path, text_to_insert):
     log_button = tk.Button(image_frame, text="Display Logs", command=toggle_logs, bg="white", fg="black",
                            font=("Helvetica", 12, "bold"))
     log_button.place(x=0, y=0, anchor=tk.NW)
+    off_button = tk.Button(image_frame, text="Shutdown server", command=shutdown_server, bg="white", fg="black",
+                           font=("Helvetica", 12, "bold"))
+    # off_button.place(x=0, y=0, anchor=tk.NW)
+    off_button.pack()
     canvas.pack()
     image_frame.pack(fill=tk.BOTH)
 
