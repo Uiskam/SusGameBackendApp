@@ -2,9 +2,11 @@ import tkinter as tk
 import json
 
 class GraphEditor:
-    def __init__(self, root):
+    def __init__(self, root, save_path="."):
         self.root = root
         self.root.title("Graph Editor")
+
+        self.save_path = save_path
 
         self.canvas = tk.Canvas(root, width=800, height=600, bg="white")
         self.canvas.pack()
@@ -26,6 +28,10 @@ class GraphEditor:
 
         controls_frame = tk.Frame(root)
         controls_frame.pack()
+
+        self.file_name_entry = tk.Entry(controls_frame, width=15)
+        self.file_name_entry.insert(0, "graph.json")
+        self.file_name_entry.pack(side=tk.LEFT)
 
         self.buffer_size_entry = tk.Entry(controls_frame, width=10)
         self.buffer_size_entry.insert(0, "0")
@@ -54,7 +60,6 @@ class GraphEditor:
                 "coordinates": {"x": x, "y": y}
             })
         else:
-            self.buffer_size = 0
 
             self.nodes.append({
                 "type": self.current_type,
@@ -91,11 +96,11 @@ class GraphEditor:
 
     def save_graph(self):
         graph_data = {"nodes": self.nodes, "edges": self.edges}
-        name = f"graph3"
-        with open(f"{name}.json", "w") as f:
+        path = self.save_path + "/" + self.file_name_entry.get()
+        with open(path, "w") as f:
             json.dump(graph_data, f, indent=4)
 
 if __name__ == "__main__":
     root = tk.Tk()
-    editor = GraphEditor(root)
+    editor = GraphEditor(root, save_path="map_creator/graphs")
     root.mainloop()
