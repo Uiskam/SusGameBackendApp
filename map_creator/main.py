@@ -102,5 +102,5 @@ class GraphEditor:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    editor = GraphEditor(root, save_path="map_creator/graphs")
+    editor = GraphEditor(root, save_path=".")
     root.mainloop()

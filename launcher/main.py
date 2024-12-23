@@ -120,10 +120,10 @@ def display_image_with_text(image_path, jar_path, text_to_insert):
     log_button = tk.Button(image_frame, text="Display Logs", command=toggle_logs, bg="white", fg="black",
                            font=("Helvetica", 12, "bold"))
     log_button.place(x=0, y=0, anchor=tk.NW)
-    off_button = tk.Button(image_frame, text="Shutdown server", command=shutdown_server, bg="white", fg="black",
-                           font=("Helvetica", 12, "bold"))
-    # off_button.place(x=0, y=0, anchor=tk.NW)
-    off_button.pack()
+    # off_button = tk.Button(image_frame, text="Shutdown server", command=shutdown_server, bg="white", fg="black",
+    #                        font=("Helvetica", 12, "bold"))
+    # # off_button.place(x=0, y=0, anchor=tk.NW)
+    # off_button.pack()
     canvas.pack()
     image_frame.pack(fill=tk.BOTH)
 
@@ -150,10 +150,11 @@ def display_image_with_text(image_path, jar_path, text_to_insert):
 # Main entry point of the script
 if __name__ == "__main__":
     image_path = "background.png"
-    jar_path = "CyberSurfers.jar"
-    unused_port = find_unused_port()
-    text_to_insert = get_ip() + f":{unused_port}"
-    os.environ["PORT"] = str(unused_port)
+    jar_path = "CyberSurfersServer.jar"
+    text_to_insert = get_ip()
+    # unused_port = find_unused_port()
+    # text_to_insert += + f":{unused_port}"
+    # os.environ["PORT"] = str(unused_port)
 
     # Run the program
     display_image_with_text(image_path, jar_path, text_to_insert)
