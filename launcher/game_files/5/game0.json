@@ -1,0 +1,215 @@
+{
+    "nodes": [
+        {
+            "type": "Server",
+            "coordinates": {
+                "x": 383,
+                "y": 80
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 30,
+            "coordinates": {
+                "x": 383,
+                "y": 232
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 5,
+            "coordinates": {
+                "x": 279,
+                "y": 165
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 5,
+            "coordinates": {
+                "x": 479,
+                "y": 161
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 5,
+            "coordinates": {
+                "x": 219,
+                "y": 272
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 5,
+            "coordinates": {
+                "x": 548,
+                "y": 269
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 5,
+            "coordinates": {
+                "x": 386,
+                "y": 361
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 0,
+            "coordinates": {
+                "x": 243,
+                "y": 84
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 0,
+            "coordinates": {
+                "x": 512,
+                "y": 67
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 10,
+            "coordinates": {
+                "x": 391,
+                "y": 455
+            }
+        },
+        {
+            "type": "Host",
+            "coordinates": {
+                "x": 222,
+                "y": 401
+            }
+        },
+        {
+            "type": "Host",
+            "coordinates": {
+                "x": 389,
+                "y": 547
+            }
+        },
+        {
+            "type": "Host",
+            "coordinates": {
+                "x": 592,
+                "y": 395
+            }
+        },
+        {
+            "type": "Host",
+            "coordinates": {
+                "x": 660,
+                "y": 185
+            }
+        },
+        {
+            "type": "Host",
+            "coordinates": {
+                "x": 85,
+                "y": 184
+            }
+        }
+    ],
+    "edges": [
+        {
+            "weight": 10000,
+            "from": 4,
+            "to": 1
+        },
+        {
+            "weight": 10000,
+            "from": 1,
+            "to": 6
+        },
+        {
+            "weight": 10000,
+            "from": 6,
+            "to": 2
+        },
+        {
+            "weight": 10000,
+            "from": 2,
+            "to": 0
+        },
+        {
+            "weight": 10000,
+            "from": 6,
+            "to": 3
+        },
+        {
+            "weight": 10000,
+            "from": 3,
+            "to": 0
+        },
+        {
+            "weight": 10000,
+            "from": 3,
+            "to": 2
+        },
+        {
+            "weight": 10000,
+            "from": 1,
+            "to": 5
+        },
+        {
+            "weight": 10000,
+            "from": 4,
+            "to": 7
+        },
+        {
+            "weight": 10000,
+            "from": 7,
+            "to": 3
+        },
+        {
+            "weight": 10000,
+            "from": 5,
+            "to": 8
+        },
+        {
+            "weight": 10000,
+            "from": 8,
+            "to": 2
+        },
+        {
+            "weight": 10000,
+            "from": 9,
+            "to": 5
+        },
+        {
+            "weight": 10000,
+            "from": 9,
+            "to": 4
+        },
+        {
+            "weight": 10000,
+            "from": 10,
+            "to": 4
+        },
+        {
+            "weight": 10000,
+            "from": 11,
+            "to": 9
+        },
+        {
+            "weight": 10000,
+            "from": 12,
+            "to": 5
+        },
+        {
+            "weight": 10000,
+            "from": 14,
+            "to": 4
+        },
+        {
+            "weight": 10000,
+            "from": 13,
+            "to": 5
+        }
+    ]
+}

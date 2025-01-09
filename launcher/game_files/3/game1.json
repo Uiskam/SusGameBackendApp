@@ -1,0 +1,270 @@
+{
+    "gameTime": 420001,
+    "gameGoal": 9240,
+    "nodes": [
+        {
+            "type": "Server",
+            "coordinates": {
+                "x": 404,
+                "y": 153
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 1,
+            "coordinates": {
+                "x": 399,
+                "y": 61
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 1,
+            "coordinates": {
+                "x": 299,
+                "y": 156
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 5,
+            "coordinates": {
+                "x": 237,
+                "y": 248
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 5,
+            "coordinates": {
+                "x": 261,
+                "y": 354
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 5,
+            "coordinates": {
+                "x": 326,
+                "y": 379
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 5,
+            "coordinates": {
+                "x": 450,
+                "y": 379
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 5,
+            "coordinates": {
+                "x": 476,
+                "y": 294
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 20,
+            "coordinates": {
+                "x": 403,
+                "y": 243
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 10,
+            "coordinates": {
+                "x": 327,
+                "y": 274
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 10,
+            "coordinates": {
+                "x": 551,
+                "y": 235
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 10,
+            "coordinates": {
+                "x": 601,
+                "y": 316
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 8,
+            "coordinates": {
+                "x": 396,
+                "y": 320
+            }
+        },
+        {
+            "type": "Router",
+            "bufferSize": 1,
+            "coordinates": {
+                "x": 268,
+                "y": 439
+            }
+        },
+        {
+            "type": "Host",
+            "coordinates": {
+                "x": 258,
+                "y": 516
+            }
+        },
+        {
+            "type": "Host",
+            "coordinates": {
+                "x": 555,
+                "y": 464
+            }
+        },
+        {
+            "type": "Host",
+            "coordinates": {
+                "x": 720,
+                "y": 314
+            }
+        }
+    ],
+    "edges": [
+        {
+            "weight": 10000,
+            "from": 8,
+            "to": 0
+        },
+        {
+            "weight": 10000,
+            "from": 2,
+            "to": 0
+        },
+        {
+            "weight": 10000,
+            "from": 9,
+            "to": 8
+        },
+        {
+            "weight": 10000,
+            "from": 7,
+            "to": 8
+        },
+        {
+            "weight": 10000,
+            "from": 12,
+            "to": 9
+        },
+        {
+            "weight": 10000,
+            "from": 5,
+            "to": 12
+        },
+        {
+            "weight": 10000,
+            "from": 6,
+            "to": 12
+        },
+        {
+            "weight": 10000,
+            "from": 7,
+            "to": 12
+        },
+        {
+            "weight": 10000,
+            "from": 6,
+            "to": 7
+        },
+        {
+            "weight": 10000,
+            "from": 5,
+            "to": 9
+        },
+        {
+            "weight": 10000,
+            "from": 9,
+            "to": 3
+        },
+        {
+            "weight": 10000,
+            "from": 3,
+            "to": 4
+        },
+        {
+            "weight": 10000,
+            "from": 5,
+            "to": 4
+        },
+        {
+            "weight": 10000,
+            "from": 13,
+            "to": 4
+        },
+        {
+            "weight": 10000,
+            "from": 13,
+            "to": 5
+        },
+        {
+            "weight": 10000,
+            "from": 3,
+            "to": 2
+        },
+        {
+            "weight": 10000,
+            "from": 2,
+            "to": 1
+        },
+        {
+            "weight": 10000,
+            "from": 10,
+            "to": 1
+        },
+        {
+            "weight": 10000,
+            "from": 10,
+            "to": 7
+        },
+        {
+            "weight": 10000,
+            "from": 6,
+            "to": 10
+        },
+        {
+            "weight": 10000,
+            "from": 11,
+            "to": 6
+        },
+        {
+            "weight": 10000,
+            "from": 11,
+            "to": 10
+        },
+        {
+            "weight": 10000,
+            "from": 16,
+            "to": 11
+        },
+        {
+            "weight": 10000,
+            "from": 15,
+            "to": 6
+        },
+        {
+            "weight": 10000,
+            "from": 14,
+            "to": 13
+        },
+        {
+            "weight": 10000,
+            "from": 6,
+            "to": 5
+        }
+    ]
+}

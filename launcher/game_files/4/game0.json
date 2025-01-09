@@ -1,0 +1,92 @@
+{
+  "nodes": [
+    {
+      "type": "Host",
+      "coordinates": {
+        "x": 50,
+        "y": 275
+      }
+    },
+    {
+      "type": "Host",
+      "coordinates": {
+        "x": 100,
+        "y": 275
+      }
+    },
+    {
+      "type": "Host",
+      "coordinates": {
+        "x": 150,
+        "y": 275
+      }
+    },
+    {
+      "type": "Host",
+      "coordinates": {
+        "x": 200,
+        "y": 275
+      }
+    },
+    {
+      "type": "Router",
+      "bufferSize": 6,
+      "coordinates": {
+        "x": 100,
+        "y": 150
+      }
+    },
+    {
+      "type": "Router",
+      "bufferSize": 5,
+      "coordinates": {
+        "x": 150,
+        "y": 150
+      }
+    },
+    {
+      "type": "Server",
+      "coordinates": {
+        "x": 150,
+        "y": 75
+      }
+    }
+  ],
+  "edges": [
+    {
+      "weight": 10000,
+      "from": 0,
+      "to": 4
+    },
+    {
+      "weight": 10000,
+      "from": 1,
+      "to": 4
+    },
+    {
+      "weight": 10000,
+      "from": 2,
+      "to": 4
+    },
+    {
+      "weight": 10000,
+      "from": 3,
+      "to": 5
+    },
+    {
+      "weight": 10000,
+      "from": 4,
+      "to": 6
+    },
+    {
+      "weight": 10000,
+      "from": 5,
+      "to": 6
+    },
+    {
+      "weight": 10000,
+      "from": 4,
+      "to": 5
+    }
+  ]
+}

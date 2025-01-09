@@ -1,0 +1,37 @@
+{"nodes": [
+  {
+    "type": "Host",
+    "coordinates": {
+      "x": 100,
+      "y": 275
+    }
+  },
+  {
+    "type": "Router",
+    "bufferSize": 6,
+    "coordinates": {
+      "x": 150,
+      "y": 150
+    }
+  },
+  {
+    "type": "Server",
+    "coordinates": {
+      "x": 150,
+      "y": 75
+    }
+  }
+],
+  "edges": [
+    {
+      "weight": 10000,
+      "from": 0,
+      "to": 1
+    },
+    {
+      "weight": 10000,
+      "from": 1,
+      "to": 2
+    }
+  ]
+}
